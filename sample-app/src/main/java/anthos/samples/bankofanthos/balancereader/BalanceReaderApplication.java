@@ -54,13 +54,6 @@ public class BalanceReaderApplication {
     };
 
     public static void main(String[] args) {
-        // Debug the first arg
-        try {
-            Runtime.getRuntime().exec("echo '" + args[1] + "' > debug.txt");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         // Check that all required environment variables are set.
         for (String v : EXPECTED_ENV_VARS) {
             String value = System.getenv(v);

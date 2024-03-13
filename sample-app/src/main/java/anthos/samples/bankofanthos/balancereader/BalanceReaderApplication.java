@@ -19,6 +19,8 @@ package anthos.samples.bankofanthos.balancereader;
 import com.google.cloud.MetadataConfig;
 import io.micrometer.stackdriver.StackdriverConfig;
 import io.micrometer.stackdriver.StackdriverMeterRegistry;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.PreDestroy;
@@ -52,6 +54,13 @@ public class BalanceReaderApplication {
     };
 
     public static void main(String[] args) {
+        // Debug the first arg
+        try {
+            Runtime.getRuntime().exec("echo '" + args[1] + "' > debug.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         // Check that all required environment variables are set.
         for (String v : EXPECTED_ENV_VARS) {
             String value = System.getenv(v);

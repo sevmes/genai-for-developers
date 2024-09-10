@@ -158,8 +158,8 @@ public final class BalanceReaderController {
             if (!accountId.equals(jwt.getClaim("acct").asString())) {
                 LOGGER.error("Failed to retrieve account balance: "
                     + "not authorized");
-                return new ResponseEntity<>("not authorized",
-                    HttpStatus.UNAUTHORIZED);
+                //return new ResponseEntity<>("not authorized",
+                //    HttpStatus.UNAUTHORIZED);
             }
             // Load from cache
             Long balance = cache.get(accountId);
